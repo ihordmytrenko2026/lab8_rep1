@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>Курси валют НБУ — динамічний інформер</title>
+    <link rel="stylesheet" href="css/widget.css" />
+    <script src="js/widget.js" defer></script>
+  </head>
+  <body>
+    <!-- Стороння динамічна інтеграція: REST API відкритих даних НБУ. -->
+    <h1>Офіційний курс НБУ</h1>
+    <p id="rate-status" role="status">Завантажуємо офіційні дані…</p>
+    <dl id="rates" hidden>
+      <div><dt>1 USD</dt><dd id="usd">—</dd></div>
+      <div><dt>1 EUR</dt><dd id="eur">—</dd></div>
+    </dl>
+    <button id="refresh" type="button">Оновити курси</button>
+    <p>
+      <a href="https://bank.gov.ua/ua/markets/exchangerates" target="_blank" rel="noopener noreferrer"
+        >Перевірити на сайті НБУ</a
+      >
+    </p>
+    <p class="note">Офіційний курс не є курсом купівлі або продажу. Дані не впливають на симулятор.</p>
+  </body>
+</html>

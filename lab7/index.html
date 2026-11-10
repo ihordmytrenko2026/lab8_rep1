@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Потік монет — наочне планування бюджету в гривні. Порівняй сценарії заощаджень і визнач свої фінансові цілі."
+    />
+    <meta name="theme-color" content="#090809" />
+    <title>Потік монет — планування бюджету без реєстрації</title>
+    <link rel="icon" href="assets/icons/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/tailwind.css" />
+    <link rel="stylesheet" href="custom-styles.css" />
+    <script src="js/app.js" defer></script>
+  </head>
+  <body class="bg-background font-sans leading-relaxed text-ink antialiased">
+    <a class="skip-link" href="#main">Перейти до основного вмісту</a>
+    <header
+      class="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-3 px-5 py-4 md:gap-5"
+      id="site-header"
+    >
+      <a
+        class="flex shrink-0 items-center gap-2 text-lg font-semibold md:text-xl"
+        href="#home"
+        aria-label="Потік монет — на початок"
+        ><img
+          class="h-12 w-16 object-contain md:h-16 md:w-20"
+          src="assets/icons/logo.svg"
+          alt=""
+          width="96"
+          height="64"
+        /><span>Потік монет</span></a
+      >
+      <nav class="hidden md:block" aria-label="Основна навігація">
+        <ul class="flex items-center gap-2 text-sm lg:gap-5 lg:text-base">
+          <li>
+            <a
+              class="inline-flex min-h-11 items-center px-1 transition-colors hover:text-primary"
+              href="#simulator"
+              >Симулятор</a
+            >
+          </li>
+          <li>
+            <a
+              class="inline-flex min-h-11 items-center px-1 transition-colors hover:text-primary"
+              href="#goals"
+              >Цілі</a
+            >
+          </li>
+          <li>
+            <a
+              class="inline-flex min-h-11 items-center px-1 transition-colors hover:text-primary"
+              href="#how-it-works"
+              >Як це працює</a
+            >
+          </li>
+          <li>
+            <details class="resources-menu relative">
+              <summary
+                class="flex min-h-11 cursor-pointer items-center gap-1 px-1 transition-colors hover:text-primary"
+              >
+                Ресурси <span aria-hidden="true">⌄</span>
+              </summary>
+              <ul
+                class="absolute right-0 z-20 w-56 rounded-xl border border-line bg-surface p-3 shadow-card"
+              >
+                <li>
+                  <a
+                    class="flex min-h-11 items-center rounded-lg px-3 hover:bg-elevated"
+                    href="#pricing"
+                    >Вартість демоверсії</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="flex min-h-11 items-center rounded-lg px-3 hover:bg-elevated"
+                    href="#documentation"
+                    >Документація</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="flex min-h-11 items-center rounded-lg px-3 hover:bg-elevated"
+                    href="#faq"
+                    >Питання та відповіді</a
+                  >
+                </li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </nav>
+      <a
+        class="hidden min-h-12 items-center justify-center rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-background transition-colors hover:bg-primary-hover active:bg-primary-active lg:inline-flex"
+        href="#simulator"
+        >Спробувати безкоштовно</a
+      >
+      <button
+        class="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-xl border border-boundary px-3 text-sm md:hidden"
+        id="menu-toggle"
+        type="button"
+        aria-controls="mobile-nav"
+        aria-expanded="false"
+      >
+        <i class="fa-solid fa-bars" aria-hidden="true"></i><span>Меню</span>
+      </button>
+      <nav
+        id="mobile-nav"
+        class="w-full border-t border-line pt-3 md:hidden"
+        aria-label="Мобільна навігація"
+        hidden
+      >
+        <ul class="grid gap-1">
+          <li>
+            <a class="flex min-h-11 items-center rounded-xl px-3 hover:bg-surface" href="#simulator"
+              >Симулятор</a
+            >
+          </li>
+          <li>
+            <a class="flex min-h-11 items-center rounded-xl px-3 hover:bg-surface" href="#goals"
+              >Цілі</a
+            >
+          </li>
+          <li>
+            <a
+              class="flex min-h-11 items-center rounded-xl px-3 hover:bg-surface"
+              href="#how-it-works"
+              >Як це працює</a
+            >
+          </li>
+          <li>
+            <a
+              class="flex min-h-11 items-center rounded-xl px-3 hover:bg-surface"
+              href="#documentation"
+              >Документація</a
+            >
+          </li>
+          <li>
+            <a class="flex min-h-11 items-center rounded-xl px-3 hover:bg-surface" href="#faq"
+              >FAQ</a
+            >
+          </li>
+          <li>
+            <a
+              class="mt-2 flex min-h-12 items-center justify-center rounded-xl bg-primary px-4 font-semibold text-background"
+              href="#simulator"
+              >Спробувати безкоштовно</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <section
+        class="mx-auto grid max-w-[1200px] items-center gap-10 px-5 py-10 md:gap-12 md:py-16 lg:grid-cols-2"
+        id="home"
+        aria-labelledby="hero-title"
+      >
+        <div class="min-w-0">
+          <p class="mb-5 text-sm font-semibold uppercase tracking-wider text-primary">
+            Планування бюджету без реєстрації
+          </p>
+          <h1
+            id="hero-title"
+            class="text-4xl font-bold leading-tight tracking-tight sm:text-5xl xl:text-[56px]"
+          >
+            Перетвори дохід<br />на потік заощаджень
+          </h1>
+          <p class="my-8 max-w-2xl text-lg text-muted">
+            Рухай повзунки, порівнюй сценарії та бач свій шлях до фінансової цілі у гривні.
+          </p>
+          <a
+            class="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-xl bg-primary px-6 py-3 text-center font-semibold text-background transition-colors hover:bg-primary-hover active:bg-primary-active sm:w-auto"
+            href="#simulator"
+            >Спланувати бюджет <i class="fa-solid fa-arrow-right" aria-hidden="true"></i
+          ></a>
+        </div>
+        <img
+          class="w-full rounded-3xl object-cover"
+          src="assets/images/hero.webp"
+          alt="Баночка з монетами та висхідна стрілка як символ накопичення"
+          width="1024"
+          height="683"
+          fetchpriority="high"
+        />
+      </section>
+
+      <section
+        class="mx-auto max-w-[1200px] px-5 py-10 md:py-12"
+        id="features"
+        aria-labelledby="features-title"
+      >
+        <p class="mb-5 text-sm font-semibold uppercase tracking-wider text-primary">Можливості</p>
+        <h2
+          id="features-title"
+          class="mb-6 text-3xl font-semibold leading-tight tracking-tight md:text-4xl"
+        >
+          Менше складнощів. Більше контролю.
+        </h2>
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <article
+            class="flex flex-col items-start gap-4 rounded-3xl border border-line bg-surface p-6 shadow-card transition-colors hover:border-boundary"
+          >
+            <img
+              src="assets/icons/icon_bank.svg"
+              alt=""
+              width="64"
+              height="64"
+              loading="lazy"
+              class="h-16 w-16"
+            />
+            <h3 class="text-xl font-semibold leading-snug">Баночки цілей</h3>
+            <p class="text-muted">Дивись прогрес і розумій, скільки залишилося до мети.</p>
+            <a
+              class="mt-auto inline-flex min-h-11 items-center gap-2 font-semibold text-primary transition-colors hover:text-primary-hover"
+              href="#goals"
+              >Переглянути цілі <span aria-hidden="true">↗</span></a
+            >
+          </article>
+          <article
+            class="flex flex-col items-start gap-4 rounded-3xl border border-line bg-surface p-6 shadow-card transition-colors hover:border-boundary"
+          >
+            <img
+              src="assets/icons/icon_security.svg"
+              alt=""
+              width="64"
+              height="64"
+              loading="lazy"
+              class="h-16 w-16"
+            />
+            <h3 class="text-xl font-semibold leading-snug">Подушка безпеки</h3>
+            <p class="text-muted">Плануй резерв під власні щомісячні витрати у гривні.</p>
+            <a
+              class="mt-auto inline-flex min-h-11 items-center gap-2 font-semibold text-primary transition-colors hover:text-primary-hover"
+              href="#goals"
+              >Переглянути приклад <span aria-hidden="true">↗</span></a
+            >
+          </article>
+          <article
+            class="flex flex-col items-start gap-4 rounded-3xl border border-line bg-surface p-6 shadow-card transition-colors hover:border-boundary"
+          >
+            <img
+              src="assets/icons/icon_slider.svg"
+              alt=""
+              width="64"
+              height="64"
+              loading="lazy"
+              class="h-16 w-16"
+            />
+            <h3 class="text-xl font-semibold leading-snug">Миттєві сценарії</h3>
+            <p class="text-muted">Порівнюй три темпи накопичення за однаковий період.</p>
+            <a
+              class="mt-auto inline-flex min-h-11 items-center gap-2 font-semibold text-primary transition-colors hover:text-primary-hover"
+              href="#simulator"
+              >До симулятора <span aria-hidden="true">↗</span></a
+            >
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="mx-auto max-w-[1200px] px-5 py-10 md:py-12"
+        id="simulator"
+        aria-labelledby="simulator-title"
+      >
+        <div class="rounded-3xl border border-line bg-surface p-5 sm:p-8">
+          <p class="mb-5 text-sm font-semibold uppercase tracking-wider text-primary">Симулятор</p>
+          <h2
+            id="simulator-title"
+            class="mb-6 text-3xl font-semibold leading-tight tracking-tight md:text-4xl"
+          >
+            Твій план у цифрах
+          </h2>
+          <p class="mb-8 text-muted">
+            Зміни параметри. Результат оновлюється одразу у твоєму браузері.
+          </p>
+          <div class="grid gap-8 lg:grid-cols-[0.7fr_1.5fr]">
+            <form
+              id="budget-form"
+              class="grid content-start gap-6"
+              aria-label="Параметри бюджету"
+              novalidate
+            >
+              <div>
+                <label class="mb-2 block text-sm text-muted" for="income"
+                  >Щомісячний дохід, грн</label
+                ><input
+                  class="min-h-12 w-full rounded-xl border border-boundary bg-elevated px-4 py-3 font-semibold"
+                  id="income"
+                  name="income"
+                  type="number"
+                  min="0"
+                  max="10000000"
+                  step="100"
+                  value="40000"
+                  required
+                  inputmode="decimal"
+                />
+              </div>
+              <div>
+                <label class="mb-2 block text-sm text-muted" for="expenses"
+                  >Фіксовані витрати, грн</label
+                ><input
+                  class="min-h-12 w-full rounded-xl border border-boundary bg-elevated px-4 py-3 font-semibold"
+                  id="expenses"
+                  name="expenses"
+                  type="number"
+                  min="0"
+                  max="10000000"
+                  step="100"
+                  value="22000"
+                  required
+                  inputmode="decimal"
+                />
+              </div>
+              <div>
+                <label class="mb-2 flex justify-between gap-3 text-sm text-muted" for="saving-rate"
+                  >Заощадження від залишку
+                  <span class="font-semibold text-ink" id="rate-value">25 %</span></label
+                ><input
+                  class="min-h-11 w-full accent-primary"
+                  id="saving-rate"
+                  name="saving-rate"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="25"
+                  step="1"
+                />
+              </div>
+              <div>
+                <label class="mb-2 flex justify-between gap-3 text-sm text-muted" for="months"
+                  >Горизонт планування
+                  <span class="font-semibold text-ink" id="months-value">12 міс.</span></label
+                ><input
+                  class="min-h-11 w-full accent-primary"
+                  id="months"
+                  name="months"
+                  type="range"
+                  min="1"
+                  max="60"
+                  value="12"
+                  step="1"
+                />
+              </div>
+              <p id="budget-error" class="text-sm text-error" role="status" hidden></p>
+              <button
+                class="min-h-11 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-primary-hover"
+                type="submit"
+              >
+                Перерахувати
+              </button>
+              <button
+                class="min-h-11 rounded-xl border border-boundary px-4 py-2 text-sm transition-colors hover:bg-elevated"
+                type="reset"
+              >
+                Повернути приклад
+              </button>
+            </form>
+            <div class="min-w-0">
+              <p
+                class="text-2xl font-semibold text-primary md:text-3xl"
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+              >
+                <span id="monthly-result">4 500</span> грн
+                <span class="text-base font-normal text-muted">/ місяць</span>
+              </p>
+              <p class="text-muted" id="calculation">Залишок після витрат 18 000 грн × 25 %</p>
+              <figure class="chart my-6 rounded-xl bg-elevated p-3 sm:p-4">
+                <svg viewBox="0 0 640 220" role="img" aria-labelledby="chart-title chart-desc">
+                  <title id="chart-title">Умовні сценарії заощаджень</title>
+                  <desc id="chart-desc">
+                    За 12 місяців: базовий — 54 000, консервативний — 43 200, оптимістичний — 64 800
+                    гривень. Точні значення наведено нижче.
+                  </desc>
+                  <path class="chart-grid" d="M44 20H620M44 72H620M44 124H620M44 176H620"></path>
+                  <path id="line-optimistic" class="line optimistic" d="M44 176L620 20"></path>
+                  <path id="line-base" class="line base" d="M44 176L620 46"></path>
+                  <path id="line-conservative" class="line conservative" d="M44 176L620 72"></path>
+                  <text x="44" y="207">0 міс.</text>
+                  <text x="312" y="207">6 міс.</text>
+                  <text x="570" y="207">12 міс.</text>
+                </svg>
+                <figcaption>
+                  Лінії показують різний темп внесків. Без інфляції та дохідності.
+                </figcaption>
+              </figure>
+              <dl class="mb-6 grid gap-3 sm:grid-cols-3">
+                <div class="rounded-xl bg-elevated p-4">
+                  <dt class="text-sm text-muted">Базовий</dt>
+                  <dd id="base-result" class="text-lg font-semibold">
+                    54 000 грн<br /><span class="text-xs font-normal text-muted">100 % внеску</span>
+                  </dd>
+                </div>
+                <div class="rounded-xl bg-elevated p-4">
+                  <dt class="text-sm text-muted">Консервативний</dt>
+                  <dd id="conservative-result" class="text-lg font-semibold">
+                    43 200 грн<br /><span class="text-xs font-normal text-muted">80 % внеску</span>
+                  </dd>
+                </div>
+                <div class="rounded-xl bg-elevated p-4">
+                  <dt class="text-sm text-muted">Оптимістичний</dt>
+                  <dd id="optimistic-result" class="text-lg font-semibold">
+                    64 800 грн<br /><span class="text-xs font-normal text-muted">120 % внеску</span>
+                  </dd>
+                </div>
+              </dl>
+              <a
+                class="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-xl bg-primary px-6 py-3 text-center font-semibold text-background transition-colors hover:bg-primary-hover active:bg-primary-active sm:w-auto"
+                href="#goals"
+                >Перейти до цілей</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="mx-auto max-w-[1200px] px-5 py-10 md:py-12"
+        id="goals"
+        aria-labelledby="goals-title"
+      >
+        <p class="mb-5 text-sm font-semibold uppercase tracking-wider text-primary">Твої цілі</p>
+        <h2
+          id="goals-title"
+          class="mb-6 text-3xl font-semibold leading-tight tracking-tight md:text-4xl"
+        >
+          Кожній мрії — зрозумілий план
+        </h2>
+        <p class="text-muted">Приклади цілей для демонстрації інтерфейсу.</p>
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
+          <article class="rounded-3xl border border-line bg-surface p-6 sm:p-8">
+            <div class="mb-6 flex items-center gap-4">
+              <img src="assets/icons/icon_bank.svg" alt="" width="52" height="52" loading="lazy" />
+              <h3 class="text-xl font-semibold leading-snug">Подушка безпеки</h3>
+            </div>
+            <p class="mb-3 text-2xl font-semibold">
+              12 000 <span class="text-muted">/ 66 000 грн</span>
+            </p>
+            <label for="reserve-progress" class="block text-sm text-muted">Накопичено 18 %</label
+            ><progress
+              id="reserve-progress"
+              value="12000"
+              max="66000"
+              class="my-4 block h-3 w-full overflow-hidden rounded-full"
+            >
+              18 %
+            </progress>
+            <p class="text-muted">Ще 54 000 грн до резерву на три місяці витрат.</p>
+            <a
+              class="mt-6 flex min-h-12 w-full items-center justify-center rounded-xl border border-boundary px-5 py-3 text-center font-semibold transition-colors hover:bg-elevated"
+              href="#simulator"
+              >Розрахувати свій темп</a
+            >
+          </article>
+          <article class="rounded-3xl border border-line bg-surface p-6 sm:p-8">
+            <div class="mb-6 flex items-center gap-4">
+              <img
+                src="assets/icons/icon_slider.svg"
+                alt=""
+                width="52"
+                height="52"
+                loading="lazy"
+              />
+              <h3 class="text-xl font-semibold leading-snug">Новий ноутбук</h3>
+            </div>
+            <p class="mb-3 text-2xl font-semibold">
+              12 000 <span class="text-muted">/ 66 000 грн</span>
+            </p>
+            <label for="laptop-progress" class="block text-sm text-muted">Накопичено 18 %</label
+            ><progress
+              id="laptop-progress"
+              value="12000"
+              max="66000"
+              class="my-4 block h-3 w-full overflow-hidden rounded-full"
+            >
+              18 %
+            </progress>
+            <p class="text-muted">Зрозуміла мета допомагає тримати власний темп.</p>
+            <a
+              class="mt-6 flex min-h-12 w-full items-center justify-center rounded-xl border border-boundary px-5 py-3 text-center font-semibold transition-colors hover:bg-elevated"
+              href="#simulator"
+              >Порівняти сценарії</a
+            >
+          </article>
+        </div>
+        <aside
+          class="mt-6 flex items-start gap-4 p-3 text-sm text-muted sm:p-6"
+          aria-label="Примітка до розрахунків"
+        >
+          <i class="fa-solid fa-circle-info text-xl" aria-hidden="true"></i>
+          <p>
+            Сценарії — це умовні розрахунки за введеними даними, а не прогноз чи фінансова
+            рекомендація. Банківське підключення не потрібне.
+          </p>
+        </aside>
+      </section>
+
+      <section
+        class="mx-auto max-w-[1200px] px-5 py-10 md:py-12"
+        id="how-it-works"
+        aria-labelledby="steps-title"
+      >
+        <p class="mb-5 text-sm font-semibold uppercase tracking-wider text-primary">Про нас</p>
+        <h2
+          id="steps-title"
+          class="mb-6 text-3xl font-semibold leading-tight tracking-tight md:text-4xl"
+        >
+          Три кроки до свого плану
+        </h2>
+        <p class="mb-8 max-w-3xl text-muted">
+          «Потік монет» — навчальний вебпроєкт для студентів і молодих дорослих. Ми показуємо, як
+          дохід, витрати й частка заощаджень впливають на умовний план у гривні. Сервіс працює
+          онлайн без реєстрації; розрахунки виконуються у браузері.
+        </p>
+        <ol class="grid list-none gap-8 p-0 md:grid-cols-3">
+          <li>
+            <span class="mb-4 block text-3xl text-secondary" aria-hidden="true">01</span>
+            <h3 class="text-xl font-semibold leading-snug">Вкажи дохід і витрати</h3>
+            <p class="mt-4 text-muted">Почни з прикладних сум свого місячного бюджету.</p>
+          </li>
+          <li>
+            <span class="mb-4 block text-3xl text-secondary" aria-hidden="true">02</span>
+            <h3 class="text-xl font-semibold leading-snug">Налаштуй темп</h3>
+            <p class="mt-4 text-muted">Обери частку вільного залишку та період накопичення.</p>
+          </li>
+          <li>
+            <span class="mb-4 block text-3xl text-secondary" aria-hidden="true">03</span>
+            <h3 class="text-xl font-semibold leading-snug">Визнач свою ціль</h3>
+            <p class="mt-4 text-muted">Порівняй бажану суму з можливостями свого плану.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Медіаінтеграція: YouTube, адаптивне відео без автозапуску. -->
+      <section
+        class="mx-auto max-w-[1200px] px-5 py-8 md:py-12"
+        id="media"
+        aria-labelledby="media-title"
+      >
+        <p class="mb-5 text-sm font-semibold uppercase tracking-wider text-primary">Медіа</p>
+        <h2
+          class="mb-6 text-3xl font-semibold leading-tight tracking-tight md:text-4xl"
+          id="media-title"
+        >
+          Від прикладу — до власного бюджету
+        </h2>
+        <div class="grid min-w-0 items-center gap-8 md:grid-cols-2">
+          <figure class="min-w-0">
+            <div class="media-frame media-video">
+              <iframe
+                class="h-full w-full"
+                src="https://www.youtube-nocookie.com/embed/-SrKJPKIJhg"
+                title="Особистий та сімейний бюджет — лекція 1, Платформа публічних фінансів Є-data"
+                loading="lazy"
+                allow="
+                  accelerometer;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <figcaption class="mt-4 text-sm text-muted">
+              «Особистий та сімейний бюджет — лекція 1». Автор: Платформа публічних фінансів Є-data.
+              <a
+                class="inline-flex min-h-11 items-center font-semibold text-primary underline underline-offset-4 hover:text-primary-hover"
+                href="https://www.youtube.com/watch?v=-SrKJPKIJhg"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Відкрити на YouTube</a
+              >
+            </figcaption>
+          </figure>
+          <div class="min-w-0">
+            <h3 class="mb-4 text-xl font-semibold leading-snug">Спочатку розберися з основами</h3>
+            <p class="text-muted">
+              Відео пояснює особистий і сімейний бюджет. Зістав його приклади зі своїми доходами та
+              витратами, а потім перевір комфортну частку заощаджень у симуляторі.
+            </p>
+            <a
+              class="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-primary px-6 py-3 text-center font-semibold text-background transition-colors hover:bg-primary-hover active:bg-primary-active sm:w-auto"
+              href="#simulator"
+              >Перевірити свій сценарій</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Медіаінтеграція: Google Maps позначає університет, а не офіс сервісу. -->
+      <section
+        class="mx-auto max-w-[1200px] px-5 py-10 md:py-12"
+        id="location"
+        aria-labelledby="location-title"
+      >
+        <p class="mb-5 text-sm font-semibold uppercase tracking-wider text-primary">
+          Локація навчального проєкту
+        </p>
+        <h2
+          class="mb-6 text-3xl font-semibold leading-tight tracking-tight md:text-4xl"
+          id="location-title"
+        >
+          Навчаємося у Львові. Плануємо онлайн.
+        </h2>
+        <div class="grid min-w-0 items-center gap-8 md:grid-cols-2">
+          <div class="min-w-0">
+            <h3 class="mb-4 text-xl font-semibold leading-snug">
+              Національний університет «Львівська політехніка»
+            </h3>
+            <p class="text-muted">
+              На карті показано університет як місце навчання, у межах якого створено проєкт. «Потік
+              монет» працює онлайн і не має офісу для відвідувачів.
+            </p>
+            <a
+              class="mt-4 inline-flex min-h-11 items-center font-semibold text-primary underline underline-offset-4 hover:text-primary-hover"
+              href="https://www.google.com/maps/search/?api=1&amp;query=Національний+університет+Львівська+політехніка"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Відкрити університет на Google Maps</a
+            >
+          </div>
+          <div class="media-frame media-map min-w-0">
+            <iframe
+              class="h-full w-full"
+              src="https://www.google.com/maps?q=Національний+університет+Львівська+політехніка&amp;output=embed"
+              title="Карта Національного університету «Львівська політехніка» — навчальна локація проєкту"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- Медіаінтеграція: динамічний інформер відкритих даних НБУ ізольовано в widget.html. -->
+      <aside
+        class="mx-auto max-w-[1200px] px-5 py-10 md:py-12"
+        id="exchange"
+        aria-labelledby="exchange-title"
+      >
+        <div
+          class="grid min-w-0 gap-8 rounded-3xl border border-line bg-surface p-5 sm:p-8 md:grid-cols-2"
+        >
+          <div class="min-w-0">
+            <p class="mb-5 text-sm font-semibold uppercase tracking-wider text-primary">
+              Додатковий контекст
+            </p>
+            <h2
+              class="mb-6 text-3xl font-semibold leading-tight tracking-tight md:text-4xl"
+              id="exchange-title"
+            >
+              Курси валют від НБУ
+            </h2>
+            <p class="text-muted">
+              Інформер показує офіційні дані Національного банку України. Симулятор «Потік монет» рахує у гривні та
+              не використовує ці курси. Перед обміном перевір умови своєї установи.
+            </p>
+            <p class="mt-4 text-sm text-muted">
+              Для завантаження потрібен інтернет. Якщо блок недоступний, скористайся посиланням на
+              джерело.
+            </p>
+            <a
+              class="mt-4 inline-flex min-h-11 items-center font-semibold text-primary underline underline-offset-4 hover:text-primary-hover"
+              href="https://bank.gov.ua/ua/markets/exchangerates"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Відкрити джерело НБУ</a
+            >
+          </div>
+          <iframe
+            class="min-h-[400px] w-full min-w-0 max-w-full rounded-xl border-0 bg-elevated"
+            src="widget.html"
+            title="Динамічний інформер курсів валют НБУ"
+            loading="lazy"
+            sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"
+          ></iframe>
+        </div>
+      </aside>
+
+      <section
+        class="mx-auto max-w-[1200px] px-5 py-10 md:py-12"
+        id="faq"
+        aria-labelledby="faq-title"
+      >
+        <p class="mb-5 text-sm font-semibold uppercase tracking-wider text-primary">Питання</p>
+        <h2
+          id="faq-title"
+          class="mb-6 text-3xl font-semibold leading-tight tracking-tight md:text-4xl"
+        >
+          Що варто знати перед початком
+        </h2>
+        <div class="grid gap-3">
+          <details class="rounded-xl bg-surface px-6 py-4">
+            <summary class="min-h-11 cursor-pointer content-center font-semibold">
+              Чи потрібна реєстрація?
+            </summary>
+            <p class="py-3 text-muted">
+              Ні. Перегляд і моделювання не потребують облікового запису.
+            </p>
+          </details>
+          <details class="rounded-xl bg-surface px-6 py-4">
+            <summary class="min-h-11 cursor-pointer content-center font-semibold">
+              Наскільки точні сценарії?
+            </summary>
+            <p class="py-3 text-muted">
+              Це арифметичні приклади за заданими припущеннями. Вони не враховують інфляцію, податки
+              чи дохідність.
+            </p>
+          </details>
+          <details class="rounded-xl bg-surface px-6 py-4">
+            <summary class="min-h-11 cursor-pointer content-center font-semibold">
+              Чи потрібно підключати банк?
+            </summary>
+            <p class="py-3 text-muted">
+              Ні. Сервіс не підключається до рахунків і не виконує переказів.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section
+        class="mx-auto max-w-[1200px] px-5 py-10 md:py-12"
+        id="documentation"
+        aria-labelledby="docs-title"
+      >
+        <p class="mb-5 text-sm font-semibold uppercase tracking-wider text-primary">Ресурси</p>
+        <h2 class="mb-6 text-3xl font-semibold md:text-4xl" id="docs-title">
+          Як читати свій розрахунок
+        </h2>
+        <div class="grid gap-6 md:grid-cols-2">
+          <article class="rounded-3xl border border-line bg-surface p-6">
+            <h3 class="mb-3 text-xl font-semibold">Формула плану</h3>
+            <p class="text-muted">
+              Щомісячний внесок = (дохід − фіксовані витрати) × частка заощаджень. Від’ємний залишок
+              не перетворюється на заощадження. Сценарії 80 %, 100 % і 120 % показують умовний темп
+              внесків.
+            </p>
+          </article>
+          <article class="rounded-3xl border border-line bg-surface p-6" id="pricing">
+            <h3 class="mb-3 text-xl font-semibold">Безкоштовна демоверсія</h3>
+            <p class="text-muted">
+              Це навчальний вебпроєкт. Розрахунки виконуються локально, обліковий запис не потрібен.
+              Приклади баночок не зберігаються як особисті цілі.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-[1200px] px-5 py-10 pb-20 md:py-12" aria-labelledby="cta-title">
+        <h2
+          id="cta-title"
+          class="mb-6 text-3xl font-semibold leading-tight tracking-tight md:text-4xl"
+        >
+          Почни зі свого наступного кроку
+        </h2>
+        <p class="text-muted">Зрозумій свій бюджет і знайди комфортний темп заощаджень.</p>
+        <a
+          class="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-xl bg-primary px-6 py-3 text-center font-semibold text-background transition-colors hover:bg-primary-hover active:bg-primary-active sm:w-auto"
+          href="#simulator"
+          >Повернутися до симулятора</a
+        >
+      </section>
+    </main>
+    <footer class="border-t border-line bg-surface">
+      <div
+        class="mx-auto grid max-w-[1200px] grid-cols-1 gap-8 px-5 py-12 md:grid-cols-2 lg:grid-cols-4"
+      >
+        <div>
+          <a class="mb-4 flex min-h-11 items-center gap-2 text-lg font-semibold" href="#home"
+            ><img
+              class="h-12 w-16 object-contain"
+              src="assets/icons/logo.svg"
+              alt=""
+              width="80"
+              height="54"
+            /><span>Потік монет</span></a
+          >
+          <p class="text-sm text-muted">
+            Наочне планування бюджету у гривні. Власний темп — зрозуміла ціль.
+          </p>
+        </div>
+        <nav aria-label="Продукт">
+          <h2 class="mb-4 text-base font-semibold">Продукт</h2>
+          <ul class="text-sm text-muted">
+            <li>
+              <a
+                class="inline-flex min-h-11 items-center transition-colors hover:text-primary"
+                href="#simulator"
+                >Симулятор</a
+              >
+            </li>
+            <li>
+              <a
+                class="inline-flex min-h-11 items-center transition-colors hover:text-primary"
+                href="#goals"
+                >Баночки цілей</a
+              >
+            </li>
+            <li>
+              <a
+                class="inline-flex min-h-11 items-center transition-colors hover:text-primary"
+                href="#how-it-works"
+                >Як це працює</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <nav aria-label="Ресурси">
+          <h2 class="mb-4 text-base font-semibold">Ресурси</h2>
+          <ul class="text-sm text-muted">
+            <li>
+              <a
+                class="inline-flex min-h-11 items-center transition-colors hover:text-primary"
+                href="#documentation"
+                >Документація</a
+              >
+            </li>
+            <li>
+              <a
+                class="inline-flex min-h-11 items-center transition-colors hover:text-primary"
+                href="#pricing"
+                >Вартість</a
+              >
+            </li>
+            <li>
+              <a
+                class="inline-flex min-h-11 items-center transition-colors hover:text-primary"
+                href="#faq"
+                >Питання та відповіді</a
+              >
+            </li>
+          </ul>
+          <p class="mt-3 flex items-center gap-2 text-xs text-muted">
+            <span class="h-2 w-2 rounded-full bg-primary" aria-hidden="true"></span>Демоверсія ·
+            локальні розрахунки
+          </p>
+        </nav>
+        <form id="newsletter-form" class="min-w-0" aria-label="Демонстрація підписки" novalidate>
+          <h2 class="mb-4 text-base font-semibold">Оновлення проєкту</h2>
+          <label class="mb-2 block text-sm text-muted" for="newsletter-email"
+            >Електронна пошта</label
+          ><input
+            class="min-h-11 w-full min-w-0 rounded-xl border border-boundary bg-elevated px-3 py-2 text-sm"
+            id="newsletter-email"
+            name="email"
+            type="email"
+            placeholder="name@example.com"
+            autocomplete="email"
+            required
+            aria-describedby="newsletter-hint newsletter-status"
+          /><button
+            class="mt-3 min-h-11 w-full rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-primary-hover active:bg-primary-active"
+            type="submit"
+          >
+            Перевірити підписку
+          </button>
+          <p class="mt-3 text-xs text-muted" id="newsletter-hint">
+            Навчальна форма. Адреса не зберігається й не надсилається.
+          </p>
+          <p class="mt-2 text-sm" id="newsletter-status" role="status"></p>
+        </form>
+      </div>
+      <p class="mx-auto max-w-[1200px] border-t border-line px-5 py-6 text-xs text-muted">
+        © 2026 Потік монет. Навчальний проєкт.
+      </p>
+    </footer>
+  </body>
+</html>

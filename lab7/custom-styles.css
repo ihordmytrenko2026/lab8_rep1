@@ -1,0 +1,119 @@
+/* Лише специфічні правила бренду; layout і адаптивність — Tailwind. */
+:root {
+  --color-background: #090809;
+  --media-max-width: 1200px;
+  --media-radius: 1.5rem;
+  --media-shadow: 0 12px 32px rgb(0 0 0 / 0.16);
+  --media-gap: 1.5rem;
+  --color-primary: #2ecc71;
+  --color-focus: #b39dff;
+  --color-line: #39353f;
+  --color-muted: #a7a4b0;
+  --color-warning: #f5c27a;
+}
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+section[id],
+article[id] {
+  scroll-margin-top: 24px;
+}
+[hidden] {
+  display: none !important;
+}
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 4px;
+}
+.skip-link {
+  position: absolute;
+  z-index: 40;
+  top: 12px;
+  left: 12px;
+  padding: 12px 24px;
+  background: var(--color-primary);
+  color: var(--color-background);
+  transform: translateY(-200%);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+.chart svg {
+  width: 100%;
+}
+.chart-grid {
+  fill: none;
+  stroke: var(--color-line);
+}
+.line {
+  fill: none;
+  stroke-width: 3;
+}
+.base {
+  stroke: var(--color-primary);
+}
+.conservative {
+  stroke: var(--color-focus);
+  stroke-dasharray: 10 7;
+}
+.optimistic {
+  stroke: var(--color-warning);
+  stroke-dasharray: 3 5;
+}
+.chart text {
+  fill: var(--color-muted);
+  font:
+    13px Inter,
+    system-ui,
+    sans-serif;
+}
+.chart figcaption {
+  color: var(--color-muted);
+  font-size: 12px;
+}
+progress {
+  border: 0;
+  background: var(--color-line);
+  accent-color: var(--color-primary);
+}
+progress::-webkit-progress-bar {
+  background: var(--color-line);
+}
+progress::-webkit-progress-value {
+  background: var(--color-primary);
+  border-radius: 999px;
+}
+progress::-moz-progress-bar {
+  background: var(--color-primary);
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
+
+/* Спільна оболонка вбудованих медіа; сітки й відступи задає Tailwind. */
+.media-frame {
+  overflow: hidden;
+  border-radius: var(--media-radius);
+  box-shadow: var(--media-shadow);
+}
+.media-video {
+  aspect-ratio: 16 / 9;
+}
+.media-map {
+  aspect-ratio: 4 / 3;
+}
+.media-frame iframe {
+  display: block;
+  border: 0;
+}
