@@ -1,0 +1,12 @@
+/* Complementary states; layout and responsive rules use compiled Tailwind. */
+[hidden] { display: none !important; }
+#feedback { scroll-margin-top: 1rem; }
+.feedback-control[data-state="error"] { border-color: #f87171; }
+.feedback-control[data-state="success"] { border-color: #2ecc71; }
+.feedback-error { color: #fca5a5; }
+#agreement[aria-invalid="true"] { outline: 2px solid #f87171; outline-offset: 3px; }
+#successModal { max-width: min(32rem, calc(100% - 2rem)); margin: auto; }
+#successModal::backdrop { background: rgb(0 0 0 / .78); }
+body.feedback-modal-open { overflow: hidden; }
+.privacy-link { color: #b39dff; }
+@media (prefers-reduced-motion: reduce) { .feedback-control { transition: none; } }

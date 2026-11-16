@@ -22,7 +22,9 @@
     />
     <link rel="stylesheet" href="css/tailwind.css" />
     <link rel="stylesheet" href="custom-styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
     <script src="js/app.js" defer></script>
+    <script src="assets/js/validation.js" defer></script>
   </head>
   <body class="bg-background font-sans leading-relaxed text-ink antialiased">
     <a class="skip-link" href="#main">Перейти до основного вмісту</a>
@@ -776,6 +778,62 @@
           >Повернутися до симулятора</a
         >
       </section>
+
+      <section id="feedback" class="border-t border-line px-5 py-12 md:py-16" aria-labelledby="feedbackTitle">
+        <div class="mx-auto max-w-[860px]">
+          <p class="text-sm font-semibold uppercase tracking-wider text-primary">Зворотний зв’язок</p>
+          <h2 id="feedbackTitle" class="mt-3 text-3xl font-bold md:text-4xl">Допоможи зробити Потік монет кращим</h2>
+          <p id="feedbackIntro" class="mt-4 max-w-2xl text-muted">Маєш запитання про симулятор або ідею для нової функції? Заповни навчальну форму. Усі поля обов’язкові.</p>
+          <p class="mt-2 text-sm text-muted">Це демонстрація: дані не зберігаються й не передаються на сервер.</p>
+          <form id="feedbackForm" class="mt-8 rounded-3xl border border-line bg-surface p-5 md:p-8" aria-describedby="feedbackIntro" novalidate>
+            <div class="grid grid-cols-1 gap-x-6 gap-y-5 md:grid-cols-2">
+              <div class="min-w-0">
+                <label for="username" class="mb-2 block text-sm font-semibold">Ім’я <span aria-hidden="true">*</span></label>
+                <input id="username" name="username" type="text" autocomplete="name" class="feedback-control min-h-12 w-full min-w-0 rounded-xl border border-boundary bg-background px-4 py-3 text-base text-ink transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus" required minlength="2" maxlength="80" aria-describedby="usernameHint usernameError" />
+                <p id="usernameHint" class="mt-2 text-xs text-muted">Не менше 2 символів.</p>
+                <p id="usernameError" class="feedback-error mt-2 text-sm" aria-live="polite" hidden></p>
+              </div>
+              <div class="min-w-0">
+                <label for="email" class="mb-2 block text-sm font-semibold">Електронна пошта <span aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" class="feedback-control min-h-12 w-full min-w-0 rounded-xl border border-boundary bg-background px-4 py-3 text-base text-ink transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus" required maxlength="254" aria-describedby="emailHint emailError" />
+                <p id="emailHint" class="mt-2 text-xs text-muted">Наприклад, user@example.com.</p>
+                <p id="emailError" class="feedback-error mt-2 text-sm" aria-live="polite" hidden></p>
+              </div>
+              <div class="min-w-0 md:col-span-2">
+                <label for="phone" class="mb-2 block text-sm font-semibold">Номер телефону <span aria-hidden="true">*</span></label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" class="feedback-control min-h-12 w-full min-w-0 rounded-xl border border-boundary bg-background px-4 py-3 text-base text-ink transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus" required inputmode="tel" aria-describedby="phoneHint phoneError" />
+                <p id="phoneHint" class="mt-2 text-xs text-muted">Формат: +380 і рівно 9 цифр, без пробілів.</p>
+                <p id="phoneError" class="feedback-error mt-2 text-sm" aria-live="polite" hidden></p>
+              </div>
+              <div class="min-w-0 md:col-span-2">
+                <label for="message" class="mb-2 block text-sm font-semibold">Повідомлення <span aria-hidden="true">*</span></label>
+                <textarea id="message" name="message" rows="4" minlength="10" maxlength="2000" class="feedback-control min-h-12 w-full min-w-0 rounded-xl border border-boundary bg-background px-4 py-3 text-base text-ink transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus resize-y" required aria-describedby="messageHint messageError"></textarea>
+                <p id="messageHint" class="mt-2 text-xs text-muted">Від 10 до 2000 символів. Не вказуй паролі або банківські дані.</p>
+                <p id="messageError" class="feedback-error mt-2 text-sm" aria-live="polite" hidden></p>
+              </div>
+              <div class="md:col-span-2">
+                <div class="flex items-start gap-3">
+                  <input id="agreement" name="agreement" type="checkbox" class="mt-1 h-5 w-5 shrink-0 accent-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus" required aria-describedby="agreementError" />
+                  <label for="agreement" class="text-sm">Я погоджуюся з <a href="#privacy" class="privacy-link underline underline-offset-4">політикою конфіденційності</a> навчальної форми.</label>
+                </div>
+                <p id="agreementError" class="feedback-error mt-2 text-sm" aria-live="polite" hidden></p>
+              </div>
+            </div>
+            <button id="feedbackSubmit" class="mt-6 min-h-12 w-full rounded-xl bg-primary px-6 py-3 font-semibold text-background transition-colors hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus md:w-auto" type="submit">Надіслати</button>
+            <p id="feedbackStatus" class="mt-3 text-sm text-muted" role="status" aria-live="polite"></p>
+          </form>
+          <details id="privacy" class="mt-5 rounded-xl border border-line p-4 text-sm text-muted">
+            <summary class="min-h-11 cursor-pointer text-ink">Політика конфіденційності навчальної форми</summary>
+            <p class="mt-3">Форма перевіряє введення лише у браузері. Повідомлення, ім’я, телефон та email не надсилаються, не записуються в cookies або локальне сховище. Після успішної перевірки поля очищуються. На інших секціях лендингу зовнішні медіасервіси можуть виконувати власні мережеві запити.</p>
+          </details>
+        </div>
+      </section>
+      <dialog id="successModal" aria-labelledby="successTitle" aria-describedby="successDescription" class="w-full max-w-lg rounded-3xl border border-line bg-surface p-6 text-ink md:p-8">
+        <p class="text-sm font-semibold text-primary">Перевірку завершено</p>
+        <h2 id="successTitle" class="mt-3 text-2xl font-bold">Дякуємо за повідомлення!</h2>
+        <p id="successDescription" class="mt-4 text-muted">Форма успішно пройшла клієнтську валідацію. Це імітація надсилання: дані не передавалися на сервер.</p>
+        <button id="closeModalBtn" type="button" autofocus class="mt-6 min-h-12 rounded-xl bg-primary px-6 py-3 font-semibold text-background hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus">Закрити</button>
+      </dialog>
     </main>
     <footer class="border-t border-line bg-surface">
       <div
@@ -823,6 +881,7 @@
         </nav>
         <nav aria-label="Ресурси">
           <h2 class="mb-4 text-base font-semibold">Ресурси</h2>
+          <a class="inline-flex min-h-11 items-center text-sm text-primary" href="#feedback">Зворотний зв’язок</a>
           <ul class="text-sm text-muted">
             <li>
               <a
