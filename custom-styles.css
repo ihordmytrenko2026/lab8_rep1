@@ -117,3 +117,29 @@ progress::-moz-progress-bar {
   display: block;
   border: 0;
 }
+/* ЛР10: Swiper.js під темну тему «Потік монет» */
+.planner-swiper {
+  padding-bottom: 3.5rem;
+}
+.planner-swiper .swiper-slide {
+  height: auto;
+}
+.planner-swiper .swiper-pagination-bullet {
+  background: #716c7a;
+  opacity: 1;
+}
+.planner-swiper .swiper-pagination-bullet-active {
+  background: var(--color-primary, #2ecc71);
+}
+.planner-swiper .swiper-button-prev,
+.planner-swiper .swiper-button-next {
+  color: var(--color-primary, #2ecc71);
+  background: none;
+  border: 0;
+}
+.planner-swiper .swiper-button-prev:focus-visible,
+.planner-swiper .swiper-button-next:focus-visible {
+  outline: 3px solid var(--color-focus, #b39dff);
+  outline-offset: 4px;
+  border-radius: 9999px;
+}

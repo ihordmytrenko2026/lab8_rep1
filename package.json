@@ -1,0 +1,24 @@
+{
+  "name": "lab_10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihordmytrenko2026/lab8_rep1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ihordmytrenko2026/lab8_rep1/issues"
+  },
+  "homepage": "https://github.com/ihordmytrenko2026/lab8_rep1#readme",
+  "dependencies": {
+    "swiper": "^14.4.0"
+  }
+}

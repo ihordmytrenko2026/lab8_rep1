@@ -8,6 +8,7 @@
       content="Потік монет — наочне планування бюджету в гривні. Порівняй сценарії заощаджень і визнач свої фінансові цілі."
     />
     <meta name="theme-color" content="#090809" />
+    
     <title>Потік монет — планування бюджету без реєстрації</title>
     <link rel="icon" href="assets/icons/logo.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,7 +23,19 @@
     />
     <link rel="stylesheet" href="css/tailwind.css" />
     <link rel="stylesheet" href="custom-styles.css" />
+    <link rel="stylesheet" href="css/tailwind.css" />
+    <!-- ЛР10: Swiper.js 11 — стилі слайдера -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- ЛР10: Fancybox v5 — стилі галереї -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.css" />
+    <link rel="stylesheet" href="custom-styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
     <script src="js/app.js" defer></script>
+    <script src="assets/js/validation.js" defer></script>
+    <!-- ЛР10: JS-бібліотеки та наша ініціалізація -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.js" defer></script>
+    <script src="js/showcase.js" defer></script>
   </head>
   <body class="bg-background font-sans leading-relaxed text-ink antialiased">
     <a class="skip-link" href="#main">Перейти до основного вмісту</a>
@@ -268,7 +281,59 @@
           </article>
         </div>
       </section>
+      <!-- ===== ЛР10: слайдер Swiper.js — як працює симулятор ===== -->
+      <section
+        class="mx-auto max-w-[1200px] px-5 py-10 md:py-12"
+        id="slider"
+        aria-labelledby="slider-title"
+      >
+        <p class="mb-5 text-sm font-semibold uppercase tracking-wider text-primary">Деталі</p>
+        <h2
+          id="slider-title"
+          class="mb-6 text-3xl font-semibold leading-tight tracking-tight md:text-4xl"
+        >
+          Що всередині сервісу
+        </h2>
 
+        <div class="swiper planner-swiper" aria-label="Особливості сервісу">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <article class="flex h-full flex-col gap-4 rounded-3xl border border-line bg-surface p-6 shadow-card">
+                <h3 class="text-xl font-semibold leading-snug">Симулятор</h3>
+                <p class="text-muted">Вкажи дохід, витрати та частку заощаджень. Результат перераховується одразу.</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="flex h-full flex-col gap-4 rounded-3xl border border-line bg-surface p-6 shadow-card">
+                <h3 class="text-xl font-semibold leading-snug">Три сценарії</h3>
+                <p class="text-muted">Базовий, оптимістичний і консервативний темп накопичення на одному графіку.</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="flex h-full flex-col gap-4 rounded-3xl border border-line bg-surface p-6 shadow-card">
+                <h3 class="text-xl font-semibold leading-snug">Гривня за замовчуванням</h3>
+                <p class="text-muted">Усі суми у гривні, без конвертації в голові.</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="flex h-full flex-col gap-4 rounded-3xl border border-line bg-surface p-6 shadow-card">
+                <h3 class="text-xl font-semibold leading-snug">Розрахунки у браузері</h3>
+                <p class="text-muted">Обчислення виконуються локально. Введені суми не передаються на сервер.</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="flex h-full flex-col gap-4 rounded-3xl border border-line bg-surface p-6 shadow-card">
+                <h3 class="text-xl font-semibold leading-snug">Перевірка форми</h3>
+                <p class="text-muted">Поля перевіряються під час введення. Навчальна форма нічого не надсилає.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="swiper-pagination"></div>
+          <button type="button" class="swiper-button-prev" aria-label="Попередній слайд"></button>
+          <button type="button" class="swiper-button-next" aria-label="Наступний слайд"></button>
+        </div>
+      </section>
       <section
         class="mx-auto max-w-[1200px] px-5 py-10 md:py-12"
         id="simulator"
@@ -545,6 +610,71 @@
         </ol>
       </section>
 
+            <!-- ===== ЛР10: галерея Fancybox v5 ===== -->
+      <section
+        class="mx-auto max-w-[1200px] px-5 py-10 md:py-12"
+        id="gallery"
+        aria-labelledby="gallery-title"
+      >
+        <p class="mb-5 text-sm font-semibold uppercase tracking-wider text-primary">Галерея</p>
+        <h2
+          id="gallery-title"
+          class="mb-6 text-3xl font-semibold leading-tight tracking-tight md:text-4xl"
+        >
+          Сервіс у скріншотах
+        </h2>
+
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <a
+            href="assets/images/hero.webp"
+            data-fancybox="potik-gallery"
+            data-caption="Головний екран сервісу"
+            class="block overflow-hidden rounded-3xl transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus"
+          >
+            <img
+              src="assets/images/hero.webp"
+              alt="Головний екран «Потік монет» з ілюстрацією накопичення"
+              width="1024"
+              height="683"
+              loading="lazy"
+              class="h-56 w-full object-cover"
+            />
+          </a>
+
+          <a
+            href="assets/images/gallery/simulator-desktop.jpg"
+            data-fancybox="potik-gallery"
+            data-caption="Симулятор на комп'ютері, 1440 px"
+            class="block overflow-hidden rounded-3xl transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus"
+          >
+            <img
+              src="assets/images/gallery/simulator-desktop.jpg"
+              alt="Симулятор заощаджень на комп'ютері: повзунки доходу, витрат і графік сценаріїв"
+              width="1440"
+              height="900"
+              loading="lazy"
+              class="h-56 w-full object-cover"
+            />
+          </a>
+
+          <a
+            href="assets/images/gallery/simulator-mobile.jpg"
+            data-fancybox="potik-gallery"
+            data-caption="Симулятор на телефоні, 375 px"
+            class="block overflow-hidden rounded-3xl transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus"
+          >
+            <img
+              src="assets/images/gallery/simulator-mobile.jpg"
+              alt="Симулятор заощаджень на мобільному екрані в один стовпчик"
+              width="375"
+              height="812"
+              loading="lazy"
+              class="h-56 w-full object-cover"
+            />
+          </a>
+        </div>
+      </section>
+      
       <!-- Медіаінтеграція: YouTube, адаптивне відео без автозапуску. -->
       <section
         class="mx-auto max-w-[1200px] px-5 py-8 md:py-12"
